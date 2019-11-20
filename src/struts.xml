@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+<package name="default" extends="struts-default">
+	  <!--定义doLogin的Action,class属性使用Spring配置文件中定义的相应的Bean实例名称  -->
+      <!-- <action name="doLogin" class="userAction">
+      	定义处理结果和资源之间的映射关系
+          <result name="input">/shop_jsp/shop_HomePage.jsp</result>
+          <result name="success">/shop_jsp/shop_HomePagelogin.jsp</result>
+      </action> -->
+     <!--  <action name="doSelectById" class="com.user.action.UserAction" method="selectById">
+          <result name="success">/admin_jsp/admin_bianji.jsp</result>
+      </action> -->
+      
+      <action name="custom_*" class="com.custom.action.CustomAction" method="{1}" >
+      	<!-- 定义处理结果和资源之间的映射关系-->
+			<result name="findcustomsuccess">/custom_jsp/findCustom.jsp</result>	
+			<result name="toupdatesuccess">/custom_jsp/editCustom.jsp</result>		
+			<result name="updatesuccess">/custom_jsp/findCustom.jsp</result>		
+			<result name="deletesuccess">/custom_jsp/findCustom.jsp</result>		
+      </action>
+</package>
+</struts>    
